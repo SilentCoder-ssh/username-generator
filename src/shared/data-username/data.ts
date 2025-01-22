@@ -11,10 +11,8 @@ const data_usernames: string[] = await REQUEST_DATA.json ()
 console
   .log("data_username :", data_usernames)
 
-  
     return data_usernames
 }
-
 
 const DATA_USERNAME: string [] = await fetchUsernames();
 
