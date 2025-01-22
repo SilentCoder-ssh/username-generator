@@ -1,3 +1,2 @@
-import './output.css'
-
-console.log("cc")
+import './shared/styles/output.css'
+import './shared/data-username/data'
