@@ -1,5 +1,8 @@
 import './shared/styles/output.css'
 import './shared/data-username/data'
-import generateUsername from './shared/utils/username-generator'
+import { usernameFinalDisplay } from './shared/utils/username-generator'
+import firstLetterUppercase from './shared/utils/first-letter-upper';
 
-generateUsername(5, 4)
+console.log("usernameFinalDisplay : ", usernameFinalDisplay);
+
+console.log("function uppercase : ", firstLetterUppercase(usernameFinalDisplay))
