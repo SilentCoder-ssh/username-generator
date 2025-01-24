@@ -1,36 +1,44 @@
-// import { generateUsername } from "./shared/utils/username-generator";
-// import { generateNumbers } from "./shared/utils/numbers-generator";
-// import firstLetterUppercase from "./shared/utils/first-letter-upper";
+import optionsManagement from "../shared/utils/options-management";
 
-export default function usernameOptionsHandler () {
-    const checkUsernameOptions = document.querySelectorAll("[type=checkbox]");
-    
-    const usernameSize:HTMLInputElement = document.querySelector("#length-range-username")!;
-    const lengthUsernameValue: HTMLInputElement = document.querySelector(
-      "#length-value-username"
-    )!;
+export default function usernameOptionsHandler() {
+  const checkUsernameOptions = document.querySelectorAll("[type=checkbox]");
 
-    const numberSize: HTMLInputElement = document.querySelector("#length-number-range")!;
-    const lengthNumberValue: HTMLInputElement = document.querySelector("#length-value-number")!;
-    
-    const usernameOutput: any = document.querySelector("#username-output")
-    const generate = document.querySelector("#generate")
-    const copy = document.querySelector("#copy-button")
+  const usernameSize: HTMLInputElement =
+    document.querySelector("#size-username")!;
+  const usernameValue: HTMLElement = document.querySelector(
+    "#size-username-span"
+  )!;
 
-    usernameSize?.addEventListener ("change", _ => {
-        lengthUsernameValue.textContent = usernameSize.value
-    })
+  const numberSize: HTMLInputElement = document.querySelector("#size-number")!;
+  const numberValue: HTMLElement = document.querySelector("#size-number-span")!;
 
-    numberSize?.addEventListener ("change", _ => {
-        lengthNumberValue.textContent = numberSize.value
-    })
+  const usernameOutput: HTMLInputElement =
+    document.querySelector("#username-output")!;
+  const generate = document.querySelector("#generate");
 
-    generate?.addEventListener("click", _ => {
-        console.log(checkUsernameOptions.values(), checkUsernameOptions)
-    })
+  usernameSize?.addEventListener("change", (_) => {
+    usernameValue.textContent = usernameSize.value;
+  });
 
+  numberSize?.addEventListener("change", (_) => {
+    numberValue.textContent = numberSize.value;
+  });
 
+  generate?.addEventListener("click", (_) => {
+    const checkUsernameContent: any = [...checkUsernameOptions];
+    let results = ["normal"];
 
+    for (let i = 0; i < checkUsernameContent.length; i++) {
+      if (checkUsernameContent[i].checked) {
+        results.push(checkUsernameContent[i].id);
+      }
+    }
 
+    usernameOutput.value = optionsManagement(results);
 
+    if (usernameOutput.classList.contains("focus:ring-green-500")) {
+      usernameOutput.classList.remove("focus:ring-green-500");
+      usernameOutput.classList.add("focus:ring-purple-500");
+    }
+  });
 }

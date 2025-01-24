@@ -7,75 +7,113 @@
     <title>Username generator</title>
   </head>
 
-  <body>
-    <div>
-      <h1>Générateur de nom d'utilisateur</h1>
+  <body
+    class="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center p-4"
+  >
+    <div class="max-w-md w-full space-y-8 bg-gray-800 p-8 rounded-lg shadow-xl">
+      <h1 class="text-3xl font-bold text-center text-purple-400">
+        Générateur de nom d'utilisateur
+      </h1>
 
-      <div>
-        <div>
+      <div class="space-y-4">
+        <div class="flex space-x-2">
           <input
             type="text"
             id="username-output"
             readonly
             placeholder="Votre nom d'utilisateur"
+            class="flex-1 bg-gray-700 border border-gray-600 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 text-gray-100 placeholder-gray-400"
           />
-          <button id="copy-button">Copier</button>
+          <button
+            id="copy-button"
+            class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors"
+          >
+            Copier
+          </button>
         </div>
       </div>
 
-      <div>
-        <div>
-          <div>
-            <label for="length-range-username">Longueur de l'Username : </label>
-            <span id="length-value-username">5</span>
+      <div class="space-y-6 py-4">
+        <!-- Username Length -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <label for="size-username" class="text-sm text-gray-300"
+              >Longueur de l'Username :
+            </label>
+            <span id="size-username-span" class="text-purple-400 font-medium"
+              >5</span
+            >
           </div>
           <input
             type="range"
-            id="length-range-username"
+            id="size-username"
             min="4"
             max="8"
             value="5"
+            class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
           />
-          <div>
+          <div class="flex justify-between text-xs text-gray-400">
             <span>4</span>
             <span>8</span>
           </div>
         </div>
 
-        <div>
-          <div>
-            <label for="length-number-value">Longueur du nombre : </label>
-            <span id="length-value-number">3</span>
+        <!-- Number Length -->
+        <div class="space-y-2">
+          <div class="flex justify-between items-center">
+            <label for="size-number" class="text-sm text-gray-300"
+              >Longueur du nombre :
+            </label>
+            <span id="size-number-span" class="text-purple-400 font-medium"
+              >3</span
+            >
           </div>
           <input
             type="range"
-            id="length-number-range"
+            id="size-number"
             min="1"
             max="4"
             value="3"
+            class="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
           />
-          <div>
+          <div class="flex justify-between text-xs text-gray-400">
             <span>1</span>
             <span>4</span>
           </div>
         </div>
       </div>
 
-      <div>
-        <div>
-          <input type="checkbox" id="first-letter-uppercase" />
-          <label for="first-letter-uppercase"
-            >Première lettre en majuscule</label
-          >
+      <div class="space-y-3">
+        <div class="flex items-center space-x-3">
+          <input
+            type="checkbox"
+            id="capitalize"
+            name="opt"
+            class="w-4 h-4 rounded border-gray-600 text-purple-600 focus:ring-purple-500 bg-gray-700"
+          />
+          <label for="first-letter-uppercase" class="text-sm text-gray-300">
+            Première lettre en majuscule
+          </label>
         </div>
-
-        <div>
-          <input type="checkbox" id="numbers" />
-          <label for="numbers">Chiffres en fin de nom</label>
+        <div class="flex items-center space-x-3">
+          <input
+            type="checkbox"
+            id="numbers"
+            name="opt"
+            class="w-4 h-4 rounded border-gray-600 text-purple-600 focus:ring-purple-500 bg-gray-700"
+          />
+          <label for="numbers" class="text-sm text-gray-300">
+            Chiffres en fin de nom
+          </label>
         </div>
       </div>
 
-      <button id="generate">Générer</button>
+      <button
+        id="generate"
+        class="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors font-medium"
+      >
+        Générer
+      </button>
     </div>
   </body>
 </html>
